@@ -46,6 +46,24 @@ mysql> select * from sai;
 
 FOREIGN KEY:https://www.w3schools.com/sql/sql_foreignkey.asp
 
+create table course(
+    -> cid int primary key,
+    -> cname varchar(10));
 
+ create table student1(sid int,branch varchar(20),cid int,primary key(sid),foreign key (cid) references course(cid));
+
+ insert into course values (10,"sai");
+ insert into course values (15,"sai"),(12,"raj"),(13,"pani");
+insert into student1 values (1,"cse",10),(2,"csm",12),(3,"it",13),(4,"csd",15);
+
+mysql> select * from student1;
++-----+--------+------+
+| sid | branch | cid  |
++-----+--------+------+
+|   1 | cse    |   10 |
+|   2 | csm    |   12 |
+|   3 | it     |   13 |
+|   4 | csd    |   15 |
++-----+--------+------+
 
 
