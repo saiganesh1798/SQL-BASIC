@@ -41,6 +41,8 @@ mysql> select * from sai;
  NOT NULL:https://www.w3schools.com/sql/sql_notnull.asp
     query:
      create table ganesh(sid int not null ,name varchar(40),branch varchar(40) default("cse(aiml)"));
+                                                (or)
+    create table vyshu(sid int ,name varchar(40),branch varchar(40) not null default("name not specified"));
 
 FOREIGN KEY:https://www.w3schools.com/sql/sql_foreignkey.asp
 
