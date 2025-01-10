@@ -1,0 +1,49 @@
+Constraints can be specified when the table is created with the CREATE TABLE statement, or after the table is created with the ALTER TABLE statement.
+
+Syntax
+CREATE TABLE table_name (
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint,
+    ....
+);
+
+SQL constraints are used to specify rules for the data in a table.
+
+The following constraints are commonly used in SQL:
+
+    NOT NULL - Ensures that a column cannot have a NULL value
+    UNIQUE - Ensures that all values in a column are different
+    PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+    FOREIGN KEY - Prevents actions that would destroy links between tables
+    CHECK - Ensures that the values in a column satisfies a specific condition
+    DEFAULT - Sets a default value for a column if no value is specified
+    CREATE INDEX - Used to create and retrieve data from the database very quickly
+
+
+
+PRIMARY KEY:  https://www.w3schools.com/sql/sql_primarykey.asp
+CHECK :  https://www.w3schools.com/sql/sql_check.asp
+UNIQUE: https://www.w3schools.com/sql/sql_unique.asp
+DEFAULT: https://www.w3schools.com/sql/sql_default.asp
+
+query:
+    create table sai(sid int not null unique,name varchar(40),branch varchar(40) default("cse(aiml)"));
+    insert into sai(sid,name) values (10,"sai");
+
+mysql> select * from sai;
++-----+------+-----------+
+| sid | name | branch    |
++-----+------+-----------+
+|  10 | sai  | cse(aiml) |
++-----+------+-----------+
+
+ NOT NULL:https://www.w3schools.com/sql/sql_notnull.asp
+    query:
+     create table ganesh(sid int not null ,name varchar(40),branch varchar(40) default("cse(aiml)"));
+
+FOREIGN KEY:https://www.w3schools.com/sql/sql_foreignkey.asp
+
+
+
+
