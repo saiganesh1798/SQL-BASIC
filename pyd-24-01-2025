@@ -27,3 +27,41 @@ command :  select e.name,d.dept_name from  employee e inner join department d on
               saiga	    cse
               navaneeth	 it
               umesh	     csd
+
+
+
+left join:
+
+select e.emp_name,d.dept_name from employee e right join department d on e.dept_id=d.dept_id union select e.emp_name,d.dept_name from employee e left join department d on e.dept_id=d.dept_id;
+
+Questions:
+
+1.insert a new record emp_id = 105,name,salary as 45000 and department_id;
+
+create table employee(emp_id int,emp_name varchar(20),salary float,department_id int);
+desc employee;
+insert into employee values(105,"saiganesh",45000,102);
+select * from employee;
+
+
+2.list all employees who belongs to sales dept using a join between employees and dept table;
+
+create table employees(emp_id int,emp_name varchar(20),salary float,department_id int);
+insert into employees values(101,"umesh",25000,100),(102,"srikanth",26000,101);
+create table department(department_id varchar(20),emp_name varchar(20),department_name varchar(20));
+insert into department values(100,"umesh","sales"),(101,"srikanth","it");
+select e.emp_name,d.department_name from employees e inner join department d on e.department_id=d.department_id;
+
+
+3.update the salary of the employee with id = 1 to 50000 in the employees table
+
+4. count the number of employees working in each department by joiing the two tables(emp and dept)
+5.delete all records from employees table where salary is < 2000
+6.retrive the name and the department name of all employees  with the salary greater than 25000 using the join between emp and dept
+5.find the average salary of employees
+6.list all employees where salary > 30000 and dep_id = 102
+7.create a foreign key relationship between emp.dep_id and dep.dep_id
+8.find the employee with the highest salary in employee table
+9.update the department name in dept table from IT to information technology
+10.update the salary of three employees, roll back the transaction if any error occurs while updating employee salaries ,set a save point before performing an update on employees salaries and commit the transaction after updating the salaries 
+11.add the new column date and time to the employee table
