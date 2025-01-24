@@ -7,3 +7,23 @@ select datediff(curdate(),'2025-06-10');
 select last_day('2025-02-12');
 select isnull(curdate());
 select isnull(null);
+
+
+
+join():
+create 2 tables employee and department 
+
+>> create table employee(id int ,name varchar(20),job_title varchar(20),salary float);
+  insert into employee(id,name,job_title,salary) values(5,"sai","manager",102455.66),(7,"navaneeth","hr",55555553.52);
+
+>> create table department(dept_id int,dept_name varchar(20));
+  insert into department(dept_id,dept_name)values(1,"cse"),(2,"it"),(3,"csd");
+
+
+command :  select e.name,d.dept_name from  employee e inner join department d on e.id=d.dept_id;
+  output: 
+
+              name     Dept_name
+              saiga	    cse
+              navaneeth	 it
+              umesh	     csd
