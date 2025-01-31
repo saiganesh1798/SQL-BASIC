@@ -139,13 +139,16 @@ select *from emp where job='Manager';//display manager records
 
 
 ## 5. To display all the details of employees whose sal is greater than the highest sal in sales dept.
+      select *from emp where sal greather than (select max(sal) from emp where deptno=(select deptno from emp where dname='sales'));
 
 ## 6. most experienced emp
-
+     
+    
 ## 7. second highest sal
 
-## 8. list emp who are getting sal more than any(i.e.greater
-atleast One Manager) manager.
+
+## 8. list emp who are getting sal more than any(i.e.greater atleast One Manager) manager.
+    select * from emp where sal > (select max(sal) from emp where deptno=(select deptno from dept where dname='sales'));
 
 
-  note:  edit previous query >> ed 
+  **Note:  edit previous query >> ed **
