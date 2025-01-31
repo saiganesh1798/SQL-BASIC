@@ -150,5 +150,6 @@ select *from emp where job='Manager';//display manager records
 ## 8. list emp who are getting sal more than any(i.e.greater atleast One Manager) manager.
     select * from emp where sal > (select max(sal) from emp where deptno=(select deptno from dept where dname='sales'));
 
-
+## employees names whose manager name is Allen's Manager.
+  select mgr from emp where name = 'allen';
   **Note:  edit previous query >> ed **
