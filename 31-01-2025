@@ -1,0 +1,151 @@
+## Distinct : 
+Examples:
+
+*  It display unique records from the table .
+  EX: select deptno from emp; //display all deptno from employee 
+      select distict(department) from employee; //for remove all duplicate values (or) shows unique records.
+      
+select * from employee where deptno=10; //display employee details
+
+select count(*) from emp where deptno=10; //count of employees in department
+
+ select count(*),distinct(deptno) from employee group by deptno; // we get missing expression to overcome we use group by
+
+
+
+ ## Group BY:
+ *  It displays combine records using group by.
+ 
+ Examples:
+ 
+  select count(*),deptno from emp group by deptno ; //to diplay all count of employees in all departments.(table display with count(*),dept no)
+  --------------------
+ | count(*)|  dept no|
+  -------------------
+  6            30
+  3            10
+  5            10
+
+
+  select salary from employee;//display salary
+
+  select sum(salary) from employee; //display all employees salary
+
+  select sum(salary) from employee where deptno=20;//displays the total salary of employee from  deptno=10
+  
+  select sum(salary),deptno from employee group by deptno; //display all salary of employee with departments
+
+  Deptno    sum(salary)
+  ----------------------
+  30         9400
+  20         10815
+  10         8750
+
+
+  select sum(salary),deptno from employee group by deptno order by deptno; //display all salary of employee with departments in ascending order
+
+    Deptno    sum(salary)
+  ----------------------
+    10         8750
+    20         10815
+    30         9400
+
+  select sum(salary),count(*),deptno from employee group by deptno order by deptno; //display all salary ,count deptno of employee with departments in ascending order. 
+
+     Deptno    count(*)    sum(salary)
+    -----------------------------------
+    10           3             8750
+    20           5             10815
+    30           6             9400
+
+
+select * from emp;
+
+| Empno | Ename  | Job       | Mgr  | HireDate | Sal  | Commission | Deptno |
+|-------|--------|-----------|------|----------|------|------------|--------|
+| 7369  | SMITH  | CLERK     | 7902 | 17-DEC-80 | 800  |            | 20     |
+| 7499  | ALLEN  | SALESMAN  | 7698 | 20-FEB-81 | 1600 |            | 30     |
+| 7521  | WARD   | SALESMAN  | 7698 | 22-FEB-81 | 1250 |            |        |
+| 7566  | JONES  | MANAGER   | 7839 | 02-APR-81 | 2975 |            |        |
+| 7654  | MARTIN | SALESMAN  | 7698 | 28-SEP-81 | 1250 | 1400       |        |
+| 7698  | BLAKE  | MANAGER   | 7839 | 01-MAY-81 | 2850 |            |        |
+| 7782  | CLARK  | MANAGER   | 7435 | 09-20-81 | 2450  |            | 10     |
+| 7768  | SCOTT  | ANALYST   | 7566 | 19-APR-87 | 3000 |            | 20     |
+| 7839  | KING   | PRESIDENT |      | 17-NOV-81 | 5000 |            | 10     |
+| 7844  | TURNER | SALESMAN  | 7698 | 08-SEP-81 | 1500 |            | 30     |
+| 7876  | ADAMS  | CLERK     | 7788 | 23-MAY-87 | 1100 |            | 20     |
+| 7900  | JARES  | CLERK     | 7658 | 03-DEC-81 | 950  |            | 30     |
+| 7902  | FORD   | ANALYST   | 7566 | 03-DEC-81 | 3000 |            | 20     |
+| 7934  | MILLER | CLERK     | 7782 | 23-JAN-82 | 1300 |            | 10     |
+
+
+Dept table
+
+deptno  dname  loc 
+------------------
+10      accounting  new york
+20      research    dallas
+30      sales      chicago
+40      operations   bost0n
+
+
+
+select job from employee; //display job columns  in empolyee table 
+
+select distinct(job) from employee; //display unique jobs
+
+select count(*),job from employee group by job;// display the job in all dept 
+
+select count(*),job from employee group by job order by ;
+
+
+select mgr,count(*) from emp group by mgr; 
+
+select *from emp where job='Manager';//display manager records
+
+## Questions :
+
+## 1. find max sal paid employee
+      select max(sal) from emp;
+      5000
+      select * from emp where sal=5000;
+                      (or)
+      select * from emp where sal=(select max(sal) from emp);  
+
+      
+## 2. find min sal paid employee
+    select min(sal) from emp;
+      800
+      select * from emp where sal=800;
+                      (or)
+      select * from emp where sal=(select min(sal) from emp);  
+
+
+## 3. Display all employees who have the same job as Blake. 
+    select job from emp where name='blake';
+     manager
+
+     select * from emp where job=manager;
+                      (or)
+     select * from emp where job=(select job from emp where name='blake');
+     
+    
+
+## 4. highest sal in sales dept
+
+    select deptno from emp where dname='sales'
+    30
+    select max(sal) from emp where deptno=(select deptno from emp where dname='sales');
+
+
+## 5. To display all the details of employees whose sal is greater than the highest sal in sales dept.
+
+## 6. most experienced emp
+
+## 7. second highest sal
+
+## 8. list emp who are getting sal more than any(i.e.greater
+atleast One Manager) manager.
+
+
+  note:  edit previous query >> ed 
